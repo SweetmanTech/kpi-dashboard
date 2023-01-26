@@ -46,7 +46,7 @@ const Home: NextPage = () => {
         <div className="flex items-center gap-4">
           <ConnectButton />
           <Link
-            href="https://github.com/decentxyz/airdrop-starter"
+            href="https://github.com/SweetmanTech/kpi-dashboard"
             target="_blank"
           >
             <Image
@@ -58,49 +58,13 @@ const Home: NextPage = () => {
           </Link>
         </div>
 
-        <h1 className={`${styles.title} font-medium`}>Airdrop Starter Pack</h1>
-
-        <div className={`${styles.grid} cursor-pointer`}>
-          <p className="pb-2 font-medium">Collection Address</p>
-
-          <input
-            className={`w-full input-text text-black`}
-            placeholder="0x..."
-            onChange={handleContractChange}
-            disabled={Boolean(contractAddress)}
-          />
-
-          {contractAddress && (
-            <div>
-              <div className="flex gap-4">
-                <p className="pb-2 font-medium">Name: {contractName}</p>
-                <div>
-                  Enter addresses to which you would like to airdrop tokens.
-                  Please use full addreses (not ENS names) and separate each
-                  with a comma.
-                </div>
-              </div>
-              <textarea
-                className="w-full text-black"
-                placeholder="0xd8da6bf26964af9d7eed9e03e53415d37aa96045,0xe9d18dbfd105155eb367fcfef87eaaafd15ea4b2,etc."
-                onChange={(e) => setRecipientString(e.target.value)}
-                value={recipientString}
-              ></textarea>
-              <AirdropUpload setAirdrop={setRecipientString} />
-
-              <AirdropButton
-                contractAddress={contractAddress}
-                recipientString={recipientString}
-              />
-            </div>
-          )}
-        </div>
+        <h1 className={`${styles.title} font-medium`}>Dashboard Starter Kit</h1>
       </main>
 
       <footer className="py-8 border-t border-white text-white">
         <div>
           <p className="flex justify-center pb-4 text-xl">
-            For the artists of every industry 🥂
+            for the musicians 💿
           </p>
           <a
             className="flex justify-center items-center text-xl"
