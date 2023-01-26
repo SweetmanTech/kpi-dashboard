@@ -3,30 +3,20 @@ import type { NextPage } from "next";
 import styles from "../../styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { ethers } from "ethers";
-import { DecentSDK, edition } from "@decent.xyz/sdk";
-import { useNetwork, useSigner } from "wagmi";
 import SeoHead from "../SeoHead";
 import Developers from "../Developers";
+import { useState } from "react";
 
 const Home: NextPage = () => {
-  const { data: signer } = useSigner();
-  const { chain } = useNetwork();
-  const [recipientString, setRecipientString] = useState("");
-  const [contractAddress, setContractAddress] = useState("");
-  const [contractName, setContractName] = useState("");
+  const DEFAULT = "Dashboard Starter Kit";
+  const [title, setTitle] = useState(DEFAULT);
 
-  const handleContractChange = async (e: any) => {
-    if (!ethers.utils.isAddress(e.target.value) || !chain || !signer) {
-      return false;
+  const toggle = (newTitle: string) => {
+    if (title === DEFAULT) {
+      setTitle(newTitle);
+    } else {
+      setTitle(DEFAULT);
     }
-    setContractAddress(e.target.value);
-
-    const sdk = new DecentSDK(chain.id, signer);
-    const contract = await edition.getContract(sdk, e.target.value);
-    const name = await contract.name();
-    setContractName(name);
   };
 
   return (
@@ -48,8 +38,8 @@ const Home: NextPage = () => {
           </Link>
         </div>
 
-        <h1 className={`${styles.title} font-medium`}>Dashboard Starter Kit</h1>
-        <Developers />
+        <h1 className={`${styles.title} font-medium`}>{title}</h1>
+        <Developers toggle={toggle} />
       </main>
 
       <footer className="py-8 border-t border-white text-white">
