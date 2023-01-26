@@ -1,6 +1,6 @@
-# airdrop starter kit
+# dashboard starter kit
 
-The purpose of this repository is to get you up & running quickly with the Decent SDK (@decent.xyz/sdk) for Airdrops.
+The purpose of this repository is to get you up & running quickly with the Decent SDK (@decent.xyz/sdk) for Dashboards.
 
 ## Getting Started
 
