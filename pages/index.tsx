@@ -11,6 +11,7 @@ import AirdropUpload from "../components/AirdropUpload";
 import { ethers } from "ethers";
 import { DecentSDK, edition } from "@decent.xyz/sdk";
 import { useNetwork, useSigner } from "wagmi";
+import SeoHead from "../components/SeoHead";
 
 const Home: NextPage = () => {
   const { data: signer } = useSigner();
@@ -33,15 +34,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={`${styles.container} background`}>
-      <Head>
-        <title>Airdrop Starter</title>
-        <meta
-          name="description"
-          content="A template for creating airdrops with the Decent Protocol"
-        />
-        <link rel="icon" href="/images/favi.png" />
-      </Head>
-
+      <SeoHead />
       <main className={styles.main}>
         <div className="flex items-center gap-4">
           <ConnectButton />
