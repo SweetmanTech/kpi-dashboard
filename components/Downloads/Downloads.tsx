@@ -4,7 +4,7 @@ import DataPoint from "../DataPoint";
 
 const Downloads = (props: any) => {
   const { toggle } = props;
-  const [collaborators, setCollaborators] = useState(0);
+  const [downloads, setDownloads] = useState(0);
   const [clickActive, setClickActive] = useState(false);
 
   const getCollaborators = async () => {
@@ -19,9 +19,6 @@ const Downloads = (props: any) => {
       const day = ("0" + date.getDate()).slice(-2);
       const start = `${startYear}-${month}-${day}`;
       const end = `${year}-${endMonth}-${day}`;
-      console.log("date.getMonth()", date.getMonth());
-      console.log("START", start);
-      console.log("END", end);
       const response = await axios.get(
         `https://api.npmjs.org/downloads/range/${start}:${end}/@decent.xyz/sdk`
       );
@@ -33,19 +30,15 @@ const Downloads = (props: any) => {
 
   const getAllCollaborators = async () => {
     const usernames = ["decentxyz"];
-    const repos = ["airdrop-starter"];
     let newCollaborators = [] as any;
     for (let i = 0; i < usernames.length; i++) {
       let response = await getCollaborators();
-      console.log("response", response.downloads);
       newCollaborators = [...newCollaborators, ...response.downloads];
     }
-    console.log("uniqueItems", newCollaborators);
     const sum = newCollaborators.reduce((acc: any, currentValue: any) => {
       return acc + currentValue.downloads;
     }, 0);
-    console.log("SUM", sum);
-    setCollaborators(sum);
+    setDownloads(sum);
   };
 
   useEffect(() => {
@@ -66,11 +59,7 @@ const Downloads = (props: any) => {
       active={clickActive}
       handleHover={handleHover}
       handleClick={handleClick}
-      text={
-        collaborators > 1000
-          ? `${(collaborators / 1000).toFixed(1)}K`
-          : collaborators
-      }
+      text={downloads > 1000 ? `${(downloads / 1000).toFixed(1)}K` : downloads}
     />
   );
 };
