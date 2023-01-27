@@ -1,11 +1,12 @@
+import { useCallback } from "react";
 import CountUp from "react-countup";
 
 const DataPoint = (props: any) => {
   const { active, handleClick, handleHover, text } = props;
 
-  const format = (value: number) => {
+  const format = useCallback((value: number) => {
     return value >= 1000 ? `${(value / 1000).toFixed(1)}K` : value.toString();
-  };
+  }, []);
 
   return (
     <div
