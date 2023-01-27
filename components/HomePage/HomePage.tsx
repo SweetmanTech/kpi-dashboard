@@ -6,6 +6,7 @@ import Link from "next/link";
 import SeoHead from "../SeoHead";
 import Developers from "../Developers";
 import { useEffect, useMemo, useState } from "react";
+import Downloads from "../Downloads";
 
 const Home: NextPage = () => {
   const DEFAULT = "Dashboard Starter Kit";
@@ -50,7 +51,10 @@ const Home: NextPage = () => {
         </div>
 
         <h1 className={`${styles.title} font-medium`}>{title}</h1>
-        <Developers toggle={toggle} />
+        <div className="flex gap-10">
+          <Developers toggle={toggle} />
+          <Downloads toggle={toggle} />
+        </div>
       </main>
 
       <footer className="py-8 border-t border-white text-white">

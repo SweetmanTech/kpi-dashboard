@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import DataPoint from "../DataPoint";
 
 const Developers = (props: any) => {
   const { toggle } = props;
@@ -78,16 +79,12 @@ const Developers = (props: any) => {
   };
 
   return (
-    <div
-      className={`transition font-mono text-9xl font-black hover:bg-[#B22222] rounded-lg px-5 ${
-        clickActive && "bg-[#B22222]"
-      }`}
-      onClick={handleClick}
-      onMouseEnter={handleHover}
-      onMouseLeave={handleHover}
-    >
-      {collaborators.length}
-    </div>
+    <DataPoint
+      active={clickActive}
+      handleHover={handleHover}
+      handleClick={handleClick}
+      text={collaborators.length}
+    />
   );
 };
 
