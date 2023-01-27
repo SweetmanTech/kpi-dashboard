@@ -41,7 +41,7 @@ const Downloads = (props: any) => {
       newCollaborators = [...newCollaborators, ...response.downloads];
     }
     console.log("uniqueItems", newCollaborators);
-    const sum = newCollaborators.reduce((acc, currentValue) => {
+    const sum = newCollaborators.reduce((acc: any, currentValue: any) => {
       return acc + currentValue.downloads;
     }, 0);
     console.log("SUM", sum);
