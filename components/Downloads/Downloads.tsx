@@ -60,7 +60,6 @@ const Downloads = (props: any) => {
       handleHover={handleHover}
       handleClick={handleClick}
       text={downloads}
-      // text={downloads > 1000 ? `${(downloads / 1000).toFixed(1)}K` : downloads}
     />
   );
 };
