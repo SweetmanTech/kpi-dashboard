@@ -25,43 +25,26 @@ const Developers = (props: any) => {
     const usernames = [
       "decentxyz",
       "decentxyz",
-      //   "decentxyz",
       "decentxyz",
-      //   "decentxyz",
       "decentxyz",
-      //   "decentxyz",
       "decentxyz",
-      //   "decentxyz",
-      //   "decentxyz",
-      //   "decentxyz",
-      //   "decentxyz",
     ];
     const repos = [
       "airdrop-starter",
       "DecentSDK-protocol",
-      //   "Start-Decent", MISSING ACCESS
       "minting-studio",
-      //   "Minting-Page", MISSING ACCESS
       "DecentSDK-npm",
-      //   "contract-indexer", MISSING ACCESS
       "ux-components",
-      //   "DecentSDK-docs", MISSING ACCESS
-      //   "live-ticketing", MISSING ACCESS
-      //   "terms-of-service", MISSING ACCESS
-      //   "DCNTVaults", MISSING ACCESS
     ];
     let newCollaborators = [] as any;
     for (let i = 0; i < usernames.length; i++) {
       let response = await getCollaborators(usernames[i], repos[i]);
-      console.log("repos[i]", repos[i]);
-      console.log("response", response);
       newCollaborators = [...newCollaborators, ...response];
     }
     const uniqueItems = newCollaborators.filter(
       (item: any, index: any) =>
         newCollaborators.findIndex((i: any) => i.id === item.id) === index
     );
-    console.log("uniqueItems", uniqueItems);
     setCollaborators(uniqueItems);
   };
 
