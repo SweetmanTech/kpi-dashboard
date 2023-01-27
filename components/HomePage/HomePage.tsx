@@ -5,17 +5,28 @@ import Image from "next/image";
 import Link from "next/link";
 import SeoHead from "../SeoHead";
 import Developers from "../Developers";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const Home: NextPage = () => {
   const DEFAULT = "Dashboard Starter Kit";
   const [title, setTitle] = useState(DEFAULT);
+  const [audio, setAudio] = useState("" as any);
+
+  useEffect(() => {
+    setAudio(
+      new Audio(
+        "https://nftstorage.link/ipfs/bafybeicpllju7qdpzyjsxm7czwn7wimx2fkq7hfcykf7noumefqgvterrm?id=1"
+      )
+    );
+  }, []);
 
   const toggle = (newTitle: string) => {
     if (title === DEFAULT) {
       setTitle(newTitle);
+      audio.play();
     } else {
       setTitle(DEFAULT);
+      audio.pause();
     }
   };
 
