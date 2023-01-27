@@ -1,6 +1,6 @@
-# airdrop starter kit
+# dashboard starter kit
 
-The purpose of this repository is to get you up & running quickly with the Decent SDK (@decent.xyz/sdk) for Airdrops.
+The purpose of this repository is to get you up & running quickly with the Decent SDK (@decent.xyz/sdk) for Dashboards.
 
 ## Getting Started
 
@@ -15,6 +15,10 @@ Then, run the development server:
 ```bash
 npm run dev
 ```
+
+make sure you set up the ENV variables:
+
+- GITHUB_PERSONAL_ACCESS_TOKEN - used to get Active Developers from Github.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
