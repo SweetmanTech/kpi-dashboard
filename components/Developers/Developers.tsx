@@ -58,7 +58,7 @@ const Developers = (props: any) => {
     }
     const uniqueItems = newCollaborators.filter(
       (item: any, index: any) =>
-        newCollaborators.findIndex((i) => i.id === item.id) === index
+        newCollaborators.findIndex((i: any) => i.id === item.id) === index
     );
     console.log("uniqueItems", uniqueItems);
     setCollaborators(uniqueItems);
