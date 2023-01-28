@@ -53,7 +53,7 @@ const Developers = (props: any) => {
   }, []);
 
   return (
-    <DataPoint text={collaborators.length} label={DEV_TITLE} toggle={toggle} />
+    <DataPoint value={collaborators.length} label={DEV_TITLE} toggle={toggle} />
   );
 };
 

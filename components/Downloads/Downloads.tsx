@@ -45,7 +45,7 @@ const Downloads = (props: any) => {
     getAllCollaborators();
   }, []);
 
-  return <DataPoint text={downloads} label={LABEL} toggle={toggle} />;
+  return <DataPoint value={downloads} label={LABEL} toggle={toggle} />;
 };
 
 export default Downloads;
