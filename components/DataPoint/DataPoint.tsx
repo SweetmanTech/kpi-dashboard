@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import CountUp from "react-countup";
 
 const DataPoint = (props: any) => {
