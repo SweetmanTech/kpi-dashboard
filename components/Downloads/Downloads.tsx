@@ -2,10 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DataPoint from "../DataPoint";
 
+const LABEL = "Monthly NPM Downloads";
 const Downloads = (props: any) => {
   const { toggle } = props;
   const [downloads, setDownloads] = useState(0);
-  const [clickActive, setClickActive] = useState(false);
 
   const getCollaborators = async () => {
     try {
@@ -45,23 +45,7 @@ const Downloads = (props: any) => {
     getAllCollaborators();
   }, []);
 
-  const handleClick = () => {
-    setClickActive(!clickActive);
-  };
-
-  const handleHover = () => {
-    if (clickActive) return;
-    toggle("Monthly NPM Downloads");
-  };
-
-  return (
-    <DataPoint
-      active={clickActive}
-      handleHover={handleHover}
-      handleClick={handleClick}
-      text={downloads}
-    />
-  );
+  return <DataPoint text={downloads} label={LABEL} toggle={toggle} />;
 };
 
 export default Downloads;

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SeoHead from "../SeoHead";
 import Developers from "../Developers";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Downloads from "../Downloads";
 
 const DashboardPage: NextPage = () => {
@@ -22,14 +22,26 @@ const DashboardPage: NextPage = () => {
   }, []);
 
   const toggle = (newTitle: string) => {
+    console.log("title", title);
+    console.log("newTitle", newTitle);
+    console.log("should pause", title === newTitle);
+    if (!audio) {
+      console.log("NO AUDIO");
+      return;
+    }
     if (title === DEFAULT) {
+      console.log("PLAYING");
       setTitle(newTitle);
       audio.play();
     } else {
+      console.log("PAUSING");
       setTitle(DEFAULT);
       audio.pause();
+      console.log("PAUSED");
     }
   };
+
+  console.log("title", title);
 
   return (
     <div className={`${styles.container} background`}>
@@ -51,7 +63,7 @@ const DashboardPage: NextPage = () => {
         </div>
 
         <h1 className={`${styles.title} font-medium`}>{title}</h1>
-        <div className="flex gap-10">
+        <div className="flex gap-10 flex-col sm:flex-row">
           <Developers toggle={toggle} />
           <Downloads toggle={toggle} />
         </div>
