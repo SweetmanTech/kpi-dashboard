@@ -53,7 +53,7 @@ const DashboardPage: NextPage = () => {
         </div>
 
         <h1 className={`${styles.title} font-medium`}>{title}</h1>
-        <div className="flex gap-10 flex-col sm:flex-row">
+        <div className="flex gap-20 flex-col sm:flex-row">
           <Developers toggle={toggle} />
           <Downloads toggle={toggle} />
         </div>
