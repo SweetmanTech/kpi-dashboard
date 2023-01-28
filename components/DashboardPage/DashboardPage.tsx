@@ -22,6 +22,8 @@ const DashboardPage: NextPage = () => {
   }, []);
 
   const toggle = (newTitle: string) => {
+    if (!audio) return;
+
     if (title === DEFAULT) {
       setTitle(newTitle);
       audio.play();
@@ -51,7 +53,7 @@ const DashboardPage: NextPage = () => {
         </div>
 
         <h1 className={`${styles.title} font-medium`}>{title}</h1>
-        <div className="flex gap-10">
+        <div className="flex gap-20 flex-col sm:flex-row">
           <Developers toggle={toggle} />
           <Downloads toggle={toggle} />
         </div>

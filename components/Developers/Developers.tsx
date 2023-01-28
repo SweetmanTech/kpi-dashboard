@@ -4,8 +4,8 @@ import DataPoint from "../DataPoint";
 
 const Developers = (props: any) => {
   const { toggle } = props;
+  const DEV_TITLE = "Active Developers";
   const [collaborators, setCollaborators] = useState([]);
-  const [clickActive, setClickActive] = useState(false);
 
   const getCollaborators = async (username: string, repo: string) => {
     try {
@@ -52,22 +52,8 @@ const Developers = (props: any) => {
     getAllCollaborators();
   }, []);
 
-  const handleClick = () => {
-    setClickActive(!clickActive);
-  };
-
-  const handleHover = () => {
-    if (clickActive) return;
-    toggle("Active Developers");
-  };
-
   return (
-    <DataPoint
-      active={clickActive}
-      handleHover={handleHover}
-      handleClick={handleClick}
-      text={collaborators.length}
-    />
+    <DataPoint value={collaborators.length} label={DEV_TITLE} toggle={toggle} />
   );
 };
 
